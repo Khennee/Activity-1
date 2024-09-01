@@ -1,17 +1,19 @@
+// initialized from html
 const addBtn = document.getElementById('ADD_BUTTON');
 const todoBody = document.getElementById('ADD_TO_DO');
 const doneBtn = document.getElementById('DONE_BUTTON');
 const finishedBody = document.getElementById('FINISHED_TASKS');
 const inputField = document.getElementById('TYPE_WORD');
 
+//resets the input when focused
 inputField.addEventListener('focus', resetInput);
-
+//we can use the enter key when adding to the to do table instead of the add button
 inputField.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         addTask();
     }
 });
-
+//checks if the input value is equal to this type of value, if it does it resets to a blank state
 function resetInput() {
     const inputValue = inputField.value;
     if (inputValue === "- - - - - - - - required input - - - - - - - -") {
@@ -21,11 +23,15 @@ function resetInput() {
     }
     
 }
-
+// adds the task to the table
 addBtn.addEventListener('click', addTask);
 
+//add task function
 function addTask() {
-    const inputValue = document.getElementById('TYPE_WORD').value.trim();
+    //gets the value of the input field
+    const inputValue = document.getElementById('TYPE_WORD').value;
+    //check if there is a value in the input field
+    // if it doest it returns the -- required input--
     if  (inputValue === "" || inputValue === "- - - - - - - - required input - - - - - - - -"){
         document.getElementById('TYPE_WORD').value = "";
         document.getElementById('TYPE_WORD').style.color = "red";
@@ -33,86 +39,94 @@ function addTask() {
         document.getElementById('TYPE_WORD').value = "- - - - - - - - required input - - - - - - - -";
         return;
     } 
-
+    //will reset the field
     resetInput()
-    
+    //creates a new table 
     const row = document.createElement('tr');
-    const checkboxTd = document.createElement('td');
+    const checkboxTd = document.createElement('td'); //for the checkbox
     const checkbox = document.createElement('input');
-
+    
+    //the new input will be checkbox
     checkbox.type = 'checkbox';
     checkboxTd.appendChild(checkbox);
 
+    //creates a table for the tasks
     const taskTd = document.createElement('td');
-    taskTd.textContent = inputValue;
+    taskTd.textContent = inputValue; //getting from the input field on what to append
 
-    const dateTd = document.createElement('td');
+    //create a new table for the date
+    const dateTd = document.createElement('td');//row for the date
     const date = new Date();
     const formattedDate = date.toLocaleDateString();
     dateTd.textContent = formattedDate;
 
+    //creates a table for the delete/remove button
     const removeTd = document.createElement('td');
     const removeBtn = document.createElement('button');
-    removeBtn.textContent = 'Delete';
-    removeBtn.addEventListener('click', removeTask);
-     removeBtn.classList.add('REMOVE_BTN');
-    removeTd.appendChild(removeBtn);
+    removeBtn.textContent = 'Delete'; //name of the button (surface)
+    removeBtn.addEventListener('click', removeTask); //clickable delete button
+    removeBtn.classList.add('REMOVE_BTN'); //css
+    removeTd.appendChild(removeBtn);//adds delete button to the table
 
-    row.appendChild(checkboxTd);
+    // add all the needs for the table
+    row.appendChild(checkboxTd); 
     row.appendChild(taskTd);
     row.appendChild(dateTd);
     row.appendChild(removeTd);
 
-    todoBody.appendChild(row);
+    todoBody.appendChild(row);//creates a row with the input
 
-    document.getElementById('TYPE_WORD').value = '';
+    document.getElementById('TYPE_WORD').value = '';//resets to an empty string
 }
 
+//deletes a task
 function removeTask(event) {
     const row = event.target.parentNode.parentNode;
-
     todoBody.removeChild(row);
 }
-
+//done button for finished task 
 doneBtn.addEventListener('click', finishTasks);
 
 function finishTasks() {
     const rows = todoBody.children;
-
-    for (let i = 0; i < rows.length; i++) {
+    //loop from the to do table
+    let i = 0;
+    while (i < rows.length) {
         const checkbox = rows[i].children[0].children[0];
+        
+        
+        if (checkbox.checked) { //checks if the checkbox is checks :)
+            const finishedRow = document.createElement('tr');//new table row
+            const finishedTaskTd = document.createElement('td');//new table data cell
+            finishedTaskTd.textContent = rows[i].children[1].textContent;//to do -> finished
+            finishedTaskTd.classList.add('FINISHED');//css
 
-        if (checkbox.checked) {
-            const finishedRow = document.createElement('tr');
-            const finishedTaskTd = document.createElement('td');
-            finishedTaskTd.textContent = rows[i].children[1].textContent;
-            finishedTaskTd.classList.add('FINISHED');
-
-            const finishedDateTd = document.createElement('td');
+            //date for the finished task
+            const finishedDateTd = document.createElement('td');//row for the date
             const finishedDate = new Date();
             const formattedFinishedDate = finishedDate.toLocaleDateString();
             finishedDateTd.textContent = formattedFinishedDate;
         
-            const finishedRemoveTd = document.createElement('td');
-            const finishedRemoveBtn = document.createElement('button');
-            finishedRemoveBtn.textContent = 'Delete';
-            finishedRemoveBtn.addEventListener('click', removeFinishedTask);
-            finishedRemoveTd.appendChild(finishedRemoveBtn);
+            const finishedRemoveTd = document.createElement('td');//create table cell
+            const finishedRemoveBtn = document.createElement('button');//ceate button
+            finishedRemoveBtn.textContent = 'Delete';//button name
+            finishedRemoveBtn.addEventListener('click', removeFinishedTask);//when clicked it removes
+            finishedRemoveTd.appendChild(finishedRemoveBtn);//add button
 
-            finishedRow.appendChild(finishedTaskTd);
-            finishedRow.appendChild(finishedDateTd);
-            finishedRow.appendChild(finishedRemoveTd);
+            finishedRow.appendChild(finishedTaskTd);//adds the finished task
+            finishedRow.appendChild(finishedDateTd);//date
+            finishedRow.appendChild(finishedRemoveTd);//delete button
+            finishedBody.appendChild(finishedRow);//adds new row to finished table 
+            todoBody.removeChild(rows[i]);//removes the main task from to do list
 
-            finishedBody.appendChild(finishedRow);
-
-            todoBody.removeChild(rows[i]);
-        
-            i--;
+        } else {
+            i++;//if condition not met increment by 1
         }
     }
 }
 
+//removes a finished task from the finished table
 function removeFinishedTask(event) {
-    const row = event.target.parentNode.parentNode;
-    finishedBody.removeChild(row);
+    const row = event.target.parentNode.parentNode;//finds the row
+    finishedBody.removeChild(row);//deletes row
 }
