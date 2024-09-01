@@ -1,0 +1,193 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #000000;
+    background-color: #191a14;
+}
+
+.UPPER {
+    background-color: #9e023e;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.UPPER h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.UPPER p {
+    font-size: 18px;
+}
+
+.ADD_MORE {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ADD_MORE label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.ADD_MORE input {
+    width: 60%;
+    height: 40px;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.ADD_MORE button {
+    margin-top: 1%;
+    width: 15%;
+    height: 40px;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #9e023e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ADD_MORE button:hover {
+    background-color: #444;
+}
+
+#todo-table {
+    width: 60%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-weight: bold;
+}
+
+#todo-table th, #todo-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+#todo-table th {
+    background-color: #d8ab2e;
+}
+
+#todo-table td {
+    background-color: #fff;
+}
+
+#todo-table input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.REQUIRED_INPUT {
+    text-align: center;
+}
+
+#FINISHED_TABLE {
+    width: 60%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-weight: bold;
+}
+
+#FINISHED_TABLE th, #FINISHED_TABLE td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+#FINISHED_TABLE th {
+    background-color: #d8ab2e;
+}
+
+#FINISHED_TABLE td {
+    background-color: #fff;
+}
+
+#FINISHED_TABLE button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#FINISHED_TABLE button:hover {
+    background-color: #3e8e41;
+}
+
+#DONE_BUTTON {
+    display: block;
+    margin: 1% auto; /* Update this line */
+    width: 15%;
+    height: 40px;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #9e023e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#DONE_BUTTON:hover {
+    background-color: #444;
+}
+
+.FINISHED {
+    color: rgb(0, 114, 0);
+    font-weight: bold;
+}
+
+.REMOVE_BTN{ 
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.FINISHED_TASK_LABEL {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.FINISHED_TASK_LABEL h2 {
+    font-weight: bold;
+    font-size: 18px ;
+    color: #ffffff;
+}
+
+.TO_DO {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.TO_DO h2 {
+    font-weight: bold;
+    font-size: 18px ;
+    color: #ffffff;
+}
