@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id="TITLE">To Do List!!!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="UPPER">
+        <h1>To Do List! </h1>
+        <p>Do this everyday and everyday OK!</p>
+    </div>
+    <!-- where we can add more to do things -->
+    <div class="ADD_MORE">
+        <label for="TYPE_WORD" class="LABEL1">ADD WHAT TO DO:</label>
+        <input class="MORE" id="TYPE_WORD" type="text">
+        <button id="ADD_BUTTON">Add</button>
+    </div>
+    <div class="TO_DO">
+        <h2>ONGOING TASKS:</h2>
+    </div>
+    <table id="todo-table">
+        <thead>
+            <tr>
+                <th class="DONE">Done</th>
+                <th class="TASK">Task</th>
+                <th class="DATE">Date</th>
+                <th class="REMOVE"></th>
+            </tr>
+        </thead>
+        <tbody id="ADD_TO_DO">
+            <!-- new task will be appended here -->
+        </tbody>
+    </table>
+    <button id="DONE_BUTTON">Done</button>
+    <div class="FINISHED_TASK_LABEL">
+        <h2>FINISHED TASKS:</h2>
+    </div>
+    <!-- where the finished task will later land -->
+    <table id="FINISHED_TABLE">
+        <thead>
+            <tr>
+                <th class="TASK">Task</th>
+                <th class="DATE">Date</th>
+                <th class="REMOVE"></th>
+            </tr>
+        </thead>
+        <tbody id="FINISHED_TASKS">
+            <!-- while finished tasks will be appended here -->
+        </tbody>
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>
