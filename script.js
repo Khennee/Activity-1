@@ -1,39 +1,39 @@
 // initialized from html
-const addBtn = document.getElementById('ADD_BUTTON');
-const todoBody = document.getElementById('ADD_TO_DO');
-const doneBtn = document.getElementById('DONE_BUTTON');
-const finishedBody = document.getElementById('FINISHED_TASKS');
-const inputField = document.getElementById('TYPE_WORD');
-const selectAllCheckboxes = document.getElementById('SELECT_ALL_CHECKBOXES')
+const ADD_BUTTON = document.getElementById('ADD_BUTTON');
+const TO_DO_BODY = document.getElementById('ADD_TO_DO');
+const DONE_BUTTON = document.getElementById('DONE_BUTTON');
+const FINISHED_BODY = document.getElementById('FINISHED_TASKS');
+const INPUT = document.getElementById('TYPE_WORD');
+const SELECT_ALL_CHECKBOXES = document.getElementById('SELECT_ALL_CHECKBOXES')
 
 //resets the input when focused
-inputField.addEventListener('focus', resetInput);
+INPUT.addEventListener('focus', resetInput);
 //we can use the enter key when adding to the to do table instead of the add button
-inputField.addEventListener('keypress', function(event) {
+INPUT.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         addToDo();
     }
 });
 //checks if the input value is equal to this type of value, if it does it resets to a blank state
 function resetInput() {
-    const inputValue = inputField.value;
-    if (inputValue === "- - - - - - - - required input - - - - - - - -") {
-        inputField.value = "";
-        inputField.style.color = "black";
-        inputField.classList.remove('REQUIRED_INPUT');
+    const INPUT_VALUE = INPUT.value;
+    if (INPUT_VALUE === "- - - - - - - - required input - - - - - - - -") {
+        INPUT.value = "";
+        INPUT.style.color = "black";
+        INPUT.classList.remove('REQUIRED_INPUT');
     }
     
 }
 // adds the task to the table
-addBtn.addEventListener('click', addToDo);
+ADD_BUTTON.addEventListener('click', addToDo);
 
 //add task function
 function addToDo() {
     //gets the value of the input field
-    const inputValue = document.getElementById('TYPE_WORD').value;
+    const INPUT_VALUE = document.getElementById('TYPE_WORD').value;
     //check if there is a value in the input field
     // if it doest it returns the -- required input--
-    if  (inputValue === "" || inputValue === "- - - - - - - - required input - - - - - - - -"){
+    if  (INPUT_VALUE === "" || INPUT_VALUE === "- - - - - - - - required input - - - - - - - -"){
         // document.getElementById('TYPE_WORD').value = "";
         document.getElementById('TYPE_WORD').style.color = "red";
         document.getElementById('TYPE_WORD').classList.add('REQUIRED_INPUT');
@@ -43,84 +43,84 @@ function addToDo() {
     //will reset the field
     resetInput()
     //creates a new table 
-    const row = document.createElement('tr');
-    const checkboxTd = document.createElement('td'); //for the checkbox
-    const checkbox = document.createElement('input');
+    const ROW = document.createElement('tr');
+    const CHECKBOX_TD = document.createElement('td'); //for the checkbox
+    const CHECKBOX = document.createElement('input');
     
     //the new input will be checkbox
-    checkbox.type = 'checkbox';
-    checkboxTd.appendChild(checkbox);
+    CHECKBOX.type = 'checkbox';
+    CHECKBOX_TD.appendChild(CHECKBOX);
 
     //creates a table for the tasks
-    const taskTd = document.createElement('td');
-    taskTd.textContent = inputValue; //getting from the input field on what to append
+    const TASK_TD = document.createElement('td');
+    TASK_TD.textContent = INPUT_VALUE; //getting from the input field on what to append
 
     //create a new table for the date
-    const dateTd = document.createElement('td');//row for the date
-    const date = new Date();
-    const formattedDate = date.toDateString();
-    dateTd.textContent = formattedDate;
+    const DATE_TD = document.createElement('td');//row for the date
+    const DATE = new Date();
+    const DATE_FORMAT = DATE.toDateString();
+    DATE_TD.textContent = DATE_FORMAT;
 
     //creates a table for the delete/remove button
-    const removeTd = document.createElement('td');
-    const removeBtn = document.createElement('button');
-    removeBtn.textContent = 'Delete'; //name of the button (surface)
-    removeBtn.addEventListener('click', removeTask); //clickable delete button
-    removeBtn.classList.add('REMOVE_BTN'); //css
-    removeTd.appendChild(removeBtn);//adds delete button to the table
+    const REMOVE_TD = document.createElement('td');
+    const REMOVE_BUTTON = document.createElement('button');
+    REMOVE_BUTTON.textContent = 'Delete'; //name of the button (surface)
+    REMOVE_BUTTON.addEventListener('click', removeTask); //clickable delete button
+    REMOVE_BUTTON.classList.add('REMOVE_BTN'); //css
+    REMOVE_TD.appendChild(REMOVE_BUTTON);//adds delete button to the table
 
     // add all the needs for the table
-    row.appendChild(checkboxTd); 
-    row.appendChild(taskTd);
-    row.appendChild(dateTd);
-    row.appendChild(removeTd);
+    ROW.appendChild(CHECKBOX_TD); 
+    ROW.appendChild(TASK_TD);
+    ROW.appendChild(DATE_TD);
+    ROW.appendChild(REMOVE_TD);
 
-    todoBody.appendChild(row);//creates a row with the input
+    TO_DO_BODY.appendChild(ROW);//creates a row with the input
 
     document.getElementById('TYPE_WORD').value = '';//resets to an empty string
 }
 
 //deletes a task
 function removeTask(event) {
-    const row = event.target.parentNode.parentNode;
-    todoBody.removeChild(row);
+    const ROW = event.target.parentNode.parentNode;
+    TO_DO_BODY.removeChild(ROW);
 }
 //done button for finished task 
-doneBtn.addEventListener('click', finishToDo);
+DONE_BUTTON.addEventListener('click', finishToDo);
 
 function finishToDo() {
-    const rows = todoBody.children;
+    const ROWS = TO_DO_BODY.children;
     //loop from the to do table
     let i = 0;
-    while (i < rows.length) {
-        const checkbox = rows[i].children[0].children[0];
+    while (i < ROWS.length) {
+        const CHECKBOX = ROWS[i].children[0].children[0];
         
         
-        if (checkbox.checked) { //checks if the checkbox is checks :)
-            const finishedRow = document.createElement('tr');//new table row
-            const finishedTaskTd = document.createElement('td');//new table data cell
-            finishedTaskTd.textContent = rows[i].children[1].textContent;//to do -> finished
-            finishedTaskTd.classList.add('FINISHED');//css
+        if (CHECKBOX.checked) { //checks if the checkbox is checks :)
+            const FINISHED_ROW = document.createElement('tr');//new table row
+            const FINISHED_TASK_TD = document.createElement('td');//new table data cell
+            FINISHED_TASK_TD.textContent = ROWS[i].children[1].textContent;//to do -> finished
+            FINISHED_TASK_TD.classList.add('FINISHED');//css
 
             //date for the finished task
-            const finishedDateTd = document.createElement('td');//row for the date
-            const finishedDate = new Date();
-            const formattedFinishedDate = finishedDate.toDateString();
-            finishedDateTd.textContent = formattedFinishedDate;
+            const FINISHED_DATE_TD = document.createElement('td');//row for the date
+            const FINISHED_DATE = new Date();
+            const FINISHED_DATE_FORMAT = FINISHED_DATE.toDateString();
+            FINISHED_DATE_TD.textContent = FINISHED_DATE_FORMAT;
         
-            const finishedRemoveTd = document.createElement('td');//create table cell
-            const finishedRemoveBtn = document.createElement('button');//ceate button
-            finishedRemoveBtn.textContent = 'Delete';//button name
-            finishedRemoveBtn.addEventListener('click', removeFinishedTask);//when clicked it removes
-            finishedRemoveTd.appendChild(finishedRemoveBtn);//add button
+            const REMOVE_FINISHED_TD = document.createElement('td');//create table cell
+            const REMOVE_FINISHED_BUTTON = document.createElement('button');//ceate button
+            REMOVE_FINISHED_BUTTON.textContent = 'Delete';//button name
+            REMOVE_FINISHED_BUTTON.addEventListener('click', removeFinishedTask);//when clicked it removes
+            REMOVE_FINISHED_TD.appendChild(REMOVE_FINISHED_BUTTON);//add button
 
-            finishedRow.appendChild(finishedTaskTd);//adds the finished task
-            finishedRow.appendChild(finishedDateTd);//date
-            finishedRow.appendChild(finishedRemoveTd);//delete button
-            finishedBody.appendChild(finishedRow);//adds new row to finished table 
-            todoBody.removeChild(rows[i]);//removes the main task from to do list
+            FINISHED_ROW.appendChild(FINISHED_TASK_TD);//adds the finished task
+            FINISHED_ROW.appendChild(FINISHED_DATE_TD);//date
+            FINISHED_ROW.appendChild(REMOVE_FINISHED_TD);//delete button
+            FINISHED_BODY.appendChild(FINISHED_ROW);//adds new row to finished table 
+            TO_DO_BODY.removeChild(ROWS[i]);//removes the main task from to do list
 
-            selectAllCheckboxes.checked = false;
+            SELECT_ALL_CHECKBOXES.checked = false;
         } else {
             i++;//if condition not met increment by 1
         }
@@ -129,15 +129,15 @@ function finishToDo() {
 
 //removes a finished task from the finished table
 function removeFinishedTask(event) {
-    const row = event.target.parentNode.parentNode;//finds the row
-    finishedBody.removeChild(row);//deletes row
+    const ROW = event.target.parentNode.parentNode;//finds the row
+    FINISHED_BODY.removeChild(ROW);//deletes row
 }
 
-selectAllCheckboxes.addEventListener('change', selectAll);
+SELECT_ALL_CHECKBOXES.addEventListener('change', selectAll);
 //select all function
 function selectAll() {
-    let checkboxes = todoBody.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach(checkbox => {//looping throught the list
-        checkbox.checked = selectAllCheckboxes.checked;
+    let checkboxes = TO_DO_BODY.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(CHECKBOX => {//looping throught the list
+        CHECKBOX.checked = SELECT_ALL_CHECKBOXES.checked;
     })
 }
