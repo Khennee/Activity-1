@@ -120,6 +120,7 @@ function finishToDo() {
             finishedBody.appendChild(finishedRow);//adds new row to finished table 
             todoBody.removeChild(rows[i]);//removes the main task from to do list
 
+            selectAllCheckboxes.checked = false;
         } else {
             i++;//if condition not met increment by 1
         }
