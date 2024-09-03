@@ -10,7 +10,7 @@ inputField.addEventListener('focus', resetInput);
 //we can use the enter key when adding to the to do table instead of the add button
 inputField.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
-        addTask();
+        addToDo();
     }
 });
 //checks if the input value is equal to this type of value, if it does it resets to a blank state
@@ -24,10 +24,10 @@ function resetInput() {
     
 }
 // adds the task to the table
-addBtn.addEventListener('click', addTask);
+addBtn.addEventListener('click', addToDo);
 
 //add task function
-function addTask() {
+function addToDo() {
     //gets the value of the input field
     const inputValue = document.getElementById('TYPE_WORD').value;
     //check if there is a value in the input field
@@ -85,9 +85,9 @@ function removeTask(event) {
     todoBody.removeChild(row);
 }
 //done button for finished task 
-doneBtn.addEventListener('click', finishTasks);
+doneBtn.addEventListener('click', finishToDo);
 
-function finishTasks() {
+function finishToDo() {
     const rows = todoBody.children;
     //loop from the to do table
     let i = 0;
