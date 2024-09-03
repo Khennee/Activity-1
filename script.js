@@ -4,6 +4,7 @@ const todoBody = document.getElementById('ADD_TO_DO');
 const doneBtn = document.getElementById('DONE_BUTTON');
 const finishedBody = document.getElementById('FINISHED_TASKS');
 const inputField = document.getElementById('TYPE_WORD');
+const selectAllCheckboxes = document.getElementById('SELECT_ALL_CHECKBOXES')
 
 //resets the input when focused
 inputField.addEventListener('focus', resetInput);
@@ -33,7 +34,7 @@ function addToDo() {
     //check if there is a value in the input field
     // if it doest it returns the -- required input--
     if  (inputValue === "" || inputValue === "- - - - - - - - required input - - - - - - - -"){
-        document.getElementById('TYPE_WORD').value = "";
+        // document.getElementById('TYPE_WORD').value = "";
         document.getElementById('TYPE_WORD').style.color = "red";
         document.getElementById('TYPE_WORD').classList.add('REQUIRED_INPUT');
         document.getElementById('TYPE_WORD').value = "- - - - - - - - required input - - - - - - - -";
@@ -57,7 +58,7 @@ function addToDo() {
     //create a new table for the date
     const dateTd = document.createElement('td');//row for the date
     const date = new Date();
-    const formattedDate = date.toLocaleDateString();
+    const formattedDate = date.toDateString();
     dateTd.textContent = formattedDate;
 
     //creates a table for the delete/remove button
@@ -104,7 +105,7 @@ function finishToDo() {
             //date for the finished task
             const finishedDateTd = document.createElement('td');//row for the date
             const finishedDate = new Date();
-            const formattedFinishedDate = finishedDate.toLocaleDateString();
+            const formattedFinishedDate = finishedDate.toDateString();
             finishedDateTd.textContent = formattedFinishedDate;
         
             const finishedRemoveTd = document.createElement('td');//create table cell
@@ -129,4 +130,11 @@ function finishToDo() {
 function removeFinishedTask(event) {
     const row = event.target.parentNode.parentNode;//finds the row
     finishedBody.removeChild(row);//deletes row
+}
+//select all function 
+function selectAll() {
+    let checkboxes = todoBody.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {//looping through all the list
+        checkbox.checked = selectAllCheckboxes.checked;
+    })
 }

@@ -12,14 +12,14 @@ body {
 }
 
 .UPPER {
-    background-color: #9e023e;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
     padding: 20px;
     text-align: center;
 }
 
 .UPPER h1 {
-    font-size: 24px;
+    font-size: 35px;
     margin-bottom: 10px;
 }
 
@@ -76,17 +76,19 @@ body {
 }
 
 #todo-table th, #todo-table td {
-    border: 1px solid #ddd;
+    border: 1px solid #ffffff;
     padding: 10px;
     text-align: center;
 }
 
 #todo-table th {
-    background-color: #d8ab2e;
+    background-color: #ffffff;
+    border-collapse: collapse;
 }
 
 #todo-table td {
-    background-color: #fff;
+    background-color: #ffffff;
+    border-collapse: collapse;
 }
 
 #todo-table input[type="checkbox"] {
@@ -109,17 +111,20 @@ body {
 }
 
 #FINISHED_TABLE th, #FINISHED_TABLE td {
-    border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0px;
 }
 
 #FINISHED_TABLE th {
-    background-color: #d8ab2e;
+    background-color: #ffffff;
+    border-collapse: collapse;
 }
 
 #FINISHED_TABLE td {
     background-color: #fff;
+    border-collapse: collapse;
 }
 
 #FINISHED_TABLE button {
@@ -137,12 +142,12 @@ body {
 
 #DONE_BUTTON {
     display: block;
-    margin: 1% auto; /* Update this line */
+    margin: 1% auto; 
     width: 15%;
     height: 40px;
     padding: 10px;
     font-size: 18px;
-    background-color: #9e023e;
+    background-color: #029000;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -191,3 +196,42 @@ body {
     font-size: 18px ;
     color: #ffffff;
 }
+
+
+.CHECKALL { 
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 1% auto;
+    color:white;
+    background-color: #9e023e;
+    width: 15%;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.SELECT_ALL { 
+    position: relative;
+    top: -4px; 
+    vertical-align: middle;
+    margin: 0 5px;
+    cursor: pointer;
+    width: 25px; 
+    height: 25px; 
+}
+
+.CHECKALL_LABEL{ 
+    position: relative;
+    top: -4px; 
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+.SELECT_ALL_CHECKBOXES{ 
+    size: 10px;
+}
+
