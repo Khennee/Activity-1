@@ -133,10 +133,10 @@ function removeFinishedTask(event) {
 }
 
 selectAllCheckboxes.addEventListener('change', selectAll);
-
+//select all function
 function selectAll() {
     let checkboxes = todoBody.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach(checkbox => {
+    checkboxes.forEach(checkbox => {//looping throught the list
         checkbox.checked = selectAllCheckboxes.checked;
     })
 }
