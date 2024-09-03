@@ -131,10 +131,12 @@ function removeFinishedTask(event) {
     const row = event.target.parentNode.parentNode;//finds the row
     finishedBody.removeChild(row);//deletes row
 }
-//select all function 
+
+selectAllCheckboxes.addEventListener('change', selectAll);
+
 function selectAll() {
     let checkboxes = todoBody.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach(checkbox => {//looping through all the list
+    checkboxes.forEach(checkbox => {
         checkbox.checked = selectAllCheckboxes.checked;
     })
 }
