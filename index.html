@@ -14,11 +14,17 @@
         <div class="ADD_MORE">
             <label for="TYPE_WORD" class="LABEL1">ADD WHAT TO DO:</label>
             <input class="MORE" id="TYPE_WORD" type="text">
+            <label class="DUE">Set Deadline :</label>
+            <input type="datetime-local" id="DUE_DATE"> 
             <button id="ADD_BUTTON">Add</button>
+            <!-- <button id="RESET_BUTTON">Reset All Data</button> -->
         </div>
-        <div class="CHECKALL">
-            <label class="CHECKALL_LABEL">Select all : </label>
-            <input type="checkbox" id="SELECT_ALL_CHECKBOXES" class="SELECT_ALL"> 
+
+        <!-- Add sorting buttons here -->
+        <div class="SORT_TASKS">
+            <label class="SORT_LABEL">Sort by due date :</label>
+            <button id="NEAREST_BUTTON" class="SORT_BUTTON">Near Due</button>
+            <button id="LATEST_BUTTON" class="SORT_BUTTON">Later Due</button>
         </div>
         <div class="TO_DO">
             <h2>ONGOING TASKS:</h2>
@@ -27,9 +33,10 @@
         <table id="todo-table">
             <thead>
                 <tr>
-                    <th class="CHECKLIST">Checklist</th>
+                    <th class="DONE"></th>
                     <th class="TASK">Task</th>
-                    <th class="DATE">Date</th>
+                    <th class="DATE">Date Created</th>
+                    <th class="DEADLINE">Due Date</th>
                     <th class="REMOVE"></th>
                 </tr>
             </thead>
@@ -37,7 +44,6 @@
                 <!-- new task will be appended here -->
             </tbody>
         </table>
-        <button id="DONE_BUTTON">Done</button>
         <div class="FINISHED_TASK_LABEL">
             <h2>FINISHED TASKS:</h2>
         </div>
@@ -46,7 +52,8 @@
             <thead>
                 <tr>
                     <th class="TASK">Task</th>
-                    <th class="DATE">Date</th>
+                    <th class="DUE_DATE">Due Date</th>
+                    <th class="STATS">Status</th>
                     <th class="REMOVE"></th>
                 </tr>
             </thead>
@@ -54,7 +61,9 @@
                 <!-- while finished tasks will be appended here -->
             </tbody>
         </table>
-        <script src="script.js"></script>
+        <script src="finish.js"></script>
+        <script src="feature.js"></script>
+        <script src="add.js"></script>
     </div>
 </body>
 </html>

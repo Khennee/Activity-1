@@ -62,7 +62,6 @@ body {
 }
 
 .ADD_MORE input {
-    width: 60%;
     height: 40px;
     padding: 10px;
     font-size: 18px;
@@ -90,8 +89,59 @@ body {
     color: white;
 }
 
-#todo-table {
+.MORE{ 
     width: 60%;
+}
+.DUE {
+    margin-top: 10px;
+}
+
+.DUE label {
+    margin: 0 auto;
+    display: table;
+}  
+
+.SORT_TASKS{ 
+    display: block;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    font-weight: bold; 
+    font-size: 18px;
+}
+
+.SORT_LABEL label{ 
+    display: inline-block;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.SORT_BUTTON{
+    display: block;
+    margin: 1% auto; 
+    width: 15%;
+    height: 40px;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #4ce349;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.SORT_BUTTON:hover {
+    background-color: #444;
+    color: white;
+}
+
+#todo-table {
+    width: 80%;
     margin: 0 auto;
     border-collapse: collapse;
     font-weight: bold;
@@ -130,7 +180,7 @@ body {
 }
 
 #FINISHED_TABLE {
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
     border-collapse: collapse;
     font-weight: bold;
@@ -172,26 +222,20 @@ body {
     color: white;
 }
 
-#DONE_BUTTON {
-    display: block;
-    margin: 1% auto; 
-    width: 15%;
-    height: 40px;
-    padding: 10px;
-    font-size: 18px;
+.DONE_BTN { 
     background-color: #4ce349;
     color: #000000;
+    padding: 5px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
 }
 
-#DONE_BUTTON:hover {
-    background-color: #444;
+.DONE_BTN:hover { 
+    background-color: blue;
     color: white;
 }
-
 .FINISHED {
     color: #f02000;
     font-weight: bold;
@@ -236,41 +280,15 @@ body {
     color: #000000;
 }
 
-
-.CHECKALL { 
-    display: block;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 1% auto;
-    color:rgb(0, 0, 0);
-    background-color: None;
-    width: 15%;
-    height: 40px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
+.TASK_TEXT {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
 }
 
-.SELECT_ALL { 
-    position: relative;
-    top: -4px; 
-    vertical-align: middle;
-    margin: 0 5px;
-    cursor: pointer;
-    width: 25px; 
-    height: 25px; 
-}
-
-.CHECKALL_LABEL{ 
-    position: relative;
-    top: -4px; 
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 18px;
+.STATUS {
     font-weight: bold;
-}
-
-.SELECT_ALL_CHECKBOXES{ 
-    size: 10px;
+    color: green;
+    padding: 5px;
 }
