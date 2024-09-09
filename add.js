@@ -53,21 +53,15 @@ function addToDo() {
         return; // Do not add the task to "To Do" list if it's already finished
     }
 
-    // Add the new task to the "To Do" list and update localStorage
     tasks.push(TASK);
     localStorage.setItem('tasks', JSON.stringify(tasks));
-
-    console.log("Task added to tasks array:", tasks);
-
+    
     // Reset the input fields after task is added
     resetInput();
 
     // Re-render the tasks list to reflect the new task
     renderTasks();
 }
-
-
-
 
 function renderTasks() {
     const TO_DO_BODY = document.getElementById('ADD_TO_DO');
@@ -100,9 +94,9 @@ function renderTasks() {
         const DONE_BUTTON = document.createElement('button');
         DONE_BUTTON.textContent = 'Done';
         DONE_BUTTON.addEventListener('click', () => {
-            // Move task to finished table when DONE_BUTTON is clicked
+
             addTaskToFinishedTable(task);
-            // Remove task from localStorage and re-render the task list
+
             removeTaskFromStorage(task);
         });
         DONE_BUTTON.classList.add('DONE_BTN');
@@ -121,7 +115,7 @@ function renderTasks() {
         ROW.appendChild(DUE_DATE_TD);
         ROW.appendChild(REMOVE_TD);
 
-        TO_DO_BODY.appendChild(ROW); // Append the new tr element to TO_DO_BODY
+        TO_DO_BODY.appendChild(ROW); 
     });
 }
 

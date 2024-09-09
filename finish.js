@@ -31,9 +31,9 @@ function finishToDo() {
                 dueDate: FORMATTED_DUE_DATE   // Store due date properly
             };
 
-            console.log("Task finished - taskName:", TASK_NAME);   // Log task name
-            console.log("Finished date stored:", FINISHED_DATE);   // Log finished date
-            console.log("Formatted due date:", FORMATTED_DUE_DATE); // Log due date
+            console.log("Task finished - taskName:", TASK_NAME);   
+            console.log("Finished date stored:", FINISHED_DATE);  
+            console.log("Formatted due date:", FORMATTED_DUE_DATE); 
 
             finishedTasks.push(FINISHED_TASKS);
             tasks = tasks.filter(task => task.task !== TASK_NAME || task.dueDate !== taskDueDate);

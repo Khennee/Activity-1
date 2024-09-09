@@ -25,18 +25,3 @@ function removeTask(event) {
     const ROW = event.target.parentNode.parentNode;
     TO_DO_BODY.removeChild(ROW);
 }
-
-// document.getElementById('RESET_BUTTON').addEventListener('click', () => {
-//     if (confirm('Are you sure you want to reset all data?')) {
-//         // Clear all data
-//         localStorage.clear();
-
-//         // Clear the UI
-//         document.getElementById('ADD_TO_DO').innerHTML = '';  // Clear the "To Do" list UI
-//         document.getElementById('FINISHED_TABLE').innerHTML = '';  // Clear the "Finished" tasks UI
-
-//         // Optionally, render to reflect the cleared state
-//         renderTasks();
-//         renderFinishedTasks();
-//     }
-// });
