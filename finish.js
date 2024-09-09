@@ -17,7 +17,7 @@ function finishToDo() {
             let taskDueDate = TASK_CELLS[3].textContent;
 
             if (taskDueDate.length === 16) {
-                taskDueDate += ":00"; // Ensure seconds are included
+                taskDueDate += ":00";
             }
 
             const FORMATTED_DUE_DATE = new Date(taskDueDate).toISOString(); // Store as ISO string
