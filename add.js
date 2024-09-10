@@ -136,8 +136,6 @@ function resetInput() {
     document.getElementById('DUE_DATE').style.color = '';
 }
 
-
-// Initialize the tasks list
 renderTasks();
 
 // Function to check all tasks if any are past their due date
@@ -146,7 +144,7 @@ function checkPastDueTasks() {
     const TASKS = TO_DO_BODY.children;
 
     for (let i = 0; i < TASKS.length; i++) {
-        const DUE_DATE_TD = TASKS[i].children[3]; // Due date column is the 4th child
+        const DUE_DATE_TD = TASKS[i].children[3]; 
         const DUE_DATE_STRING = DUE_DATE_TD.textContent;
         const DUE_DATE = new Date(DUE_DATE_STRING);
 
@@ -166,7 +164,7 @@ function sortTasks(isNearest) {
     const TASKS_ARRAY = Array.from(TO_DO_BODY.children);
 
     TASKS_ARRAY.sort((taskA, taskB) => {
-        const DUE_DATE_A = new Date(taskA.children[3].textContent); // Get due date from 4th child
+        const DUE_DATE_A = new Date(taskA.children[3].textContent); 
         const DUE_DATE_B = new Date(taskB.children[3].textContent);
 
         return isNearest ? DUE_DATE_A - DUE_DATE_B : DUE_DATE_B - DUE_DATE_A; // Ascending if nearest, descending if latest
@@ -201,7 +199,7 @@ function addTaskToFinishedTable(task) {
     ROW.appendChild(DATE_TD);
     ROW.appendChild(DUE_DATE_TD);
 
-    FINISHED_BODY.appendChild(ROW); // Append the new tr element to FINISHED_BODY
+    FINISHED_BODY.appendChild(ROW); 
     
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks = tasks.filter(t => t.task !== task.task || t.dueDate !== task.dueDate);
@@ -212,7 +210,6 @@ function addTaskToFinishedTable(task) {
     finishedTasks.push(task);
     localStorage.setItem('finishedTasks', JSON.stringify(finishedTasks));
 
-    // Re-render the finished tasks
     renderFinishedTasks();
 
     renderTasks();

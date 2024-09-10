@@ -9,18 +9,16 @@ INPUT.addEventListener('keypress', function(event) {
         addToDo();
     }
 });
-//checks if the input value is equal to this type of value, if it does it resets to a blank state
 function resetInput() {
-    document.getElementById('TYPE_WORD').value = ''; // resets the input field
-    document.getElementById('TYPE_WORD').style.color = "black"; // resets the color to black
-    document.getElementById('TYPE_WORD').classList.remove('REQUIRED_INPUT'); // removes the required input class
+    document.getElementById('TYPE_WORD').value = ''; 
+    document.getElementById('TYPE_WORD').style.color = "black"; 
+    document.getElementById('TYPE_WORD').classList.remove('REQUIRED_INPUT'); 
 
-    document.getElementById('DUE_DATE').value = ''; // resets the due date input field
-    document.getElementById('DUE_DATE').style.color = "black"; // resets the color to black
-    document.getElementById('DUE_DATE').classList.remove('REQUIRED_INPUT'); // removes the required input class
+    document.getElementById('DUE_DATE').value = ''; 
+    document.getElementById('DUE_DATE').style.color = "black"; 
+    document.getElementById('DUE_DATE').classList.remove('REQUIRED_INPUT'); 
 }
 
-//deletes a task
 function removeTask(event) {
     const ROW = event.target.parentNode.parentNode;
     TO_DO_BODY.removeChild(ROW);

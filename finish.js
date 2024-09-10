@@ -20,20 +20,16 @@ function finishToDo() {
                 taskDueDate += ":00";
             }
 
-            const FORMATTED_DUE_DATE = new Date(taskDueDate).toISOString(); // Store as ISO string
+            const FORMATTED_DUE_DATE = new Date(taskDueDate).toISOString(); 
 
             // Get the current date as finishedDate and convert to ISO format
             const FINISHED_DATE = new Date().toISOString(); 
 
             const FINISHED_TASKS = {
                 task: TASK_NAME,
-                finishedDate: FINISHED_DATE, // Store the current date/time
-                dueDate: FORMATTED_DUE_DATE   // Store due date properly
+                finishedDate: FINISHED_DATE, 
+                dueDate: FORMATTED_DUE_DATE   
             };
-
-            console.log("Task finished - taskName:", TASK_NAME);   
-            console.log("Finished date stored:", FINISHED_DATE);  
-            console.log("Formatted due date:", FORMATTED_DUE_DATE); 
 
             finishedTasks.push(FINISHED_TASKS);
             tasks = tasks.filter(task => task.task !== TASK_NAME || task.dueDate !== taskDueDate);
